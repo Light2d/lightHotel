@@ -7,7 +7,7 @@
         <h2>Вход в аккаунт</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}  <!-- Выводим форму -->
+            {{ form.as_p }}  
             <button type="submit">Войти</button>
         </form>
 
@@ -15,7 +15,7 @@
             Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a>
         </div>
 
-        <!-- Вывод сообщений об ошибке -->
+     
         {% if messages %}
             <div class="messages">
                 {% for message in messages %}

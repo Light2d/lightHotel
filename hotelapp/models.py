@@ -20,20 +20,20 @@ class CustomUser(AbstractUser):
     registration_address = models.TextField()
     gender = models.CharField(max_length=10, choices=Gender.choices, default=Gender.MALE)
     role = models.CharField(max_length=10, choices=Role.choices, default=Role.USER)
-    is_banned = models.BooleanField(default=False)  # Блокировка пользователя
-    failed_login_attempts = models.IntegerField(default=0)  # Кол-во неудачных попыток входа
-    last_login_attempt = models.DateTimeField(null=True, blank=True)  # Последняя попытка входа
+    is_banned = models.BooleanField(default=False)  
+    failed_login_attempts = models.IntegerField(default=0)  
+    last_login_attempt = models.DateTimeField(null=True, blank=True)  
     first_login = models.DateTimeField(default=timezone.now, blank=True)
     REQUIRED_FIELDS = ['email', 'phone_number', 'registration_address', 'gender', 'role']
 
     groups = models.ManyToManyField(
         Group,
-        related_name='customuser_set',  # Уникальное имя для обратной связи
+        related_name='customuser_set', 
         blank=True
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        related_name='customuser_set',  # Уникальное имя для обратной связи
+        related_name='customuser_set', 
         blank=True
     )
 

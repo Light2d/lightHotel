@@ -186,7 +186,7 @@ footer {
 }
 
 main {
-  padding: 20px;
+  padding: 70px;
   background-color: white;
   min-height: 80vh;
 }
@@ -434,4 +434,176 @@ a:hover {
   font-size: 16px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Общие стили для таблицы */
+.user-list-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.user-list-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.user-table th, .user-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.user-table td a {
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.user-table td a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для кнопки добавления */
+.add-user-link {
+  margin-top: 20px;
+}
+
+.add-user-link a {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.add-user-link a:hover {
+  background-color: #218838;
+}
+
+/* Стили для формы добавления пользователя */
+.user-form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.user-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-form-container form input,
+.user-form-container form select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.user-form-container form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-form-container form button:hover {
+  background-color: #0056b3;
+}
+
+.form-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.form-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.form-link a:hover {
+  text-decoration: underline;
+}
+
+.welcome-header {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Панель администратора */
+.admin-panel {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.admin-panel h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.admin-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-links div {
+  margin: 10px 0;
+}
+
+.admin-links a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.admin-links a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для ссылок */
+.links-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.links-container a {
+  color: #007BFF;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.links-container a:hover {
+  text-decoration: underline;
 }

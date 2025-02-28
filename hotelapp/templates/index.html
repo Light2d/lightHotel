@@ -1,12 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-</head>
-<body>
-    <h2>Добро пожаловать, {{ user.username }}!</h2>
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<h2 class="welcome-header">Добро пожаловать, {{ user.username }}!</h2>
 
     {% if messages %}
         {% for message in messages %}
@@ -17,13 +14,21 @@
     {% endif %}
 
     {% if user.role == 'admin' %}
-        <h3>Панель администратора</h3>
-        <ul>
-            <li><a href="{% url 'admin:index' %}">Перейти в Django Admin</a></li>
-        </ul>
-    {% endif %}
+            <div class="admin-panel">
+                <h3>Панель администратора</h3>
+                <ul class="admin-links">
+                    <div>
+                        <a href="{% url 'user_list' %}">Посмотреть список пользователей</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'add_user' %}">Добавить нового пользователя</a>
+                    </div>
+                </ul>
+            </div>
+        {% endif %}
 
-    <p><a href="{% url 'change_password' %}">Сменить пароль</a></p>
-    <p><a href="{% url 'logout' %}">Выйти</a></p>
-</body>
-</html>
+        <div class="links-container">
+            <p><a href="{% url 'change_password' %}">Сменить пароль</a></p>
+            <p><a href="{% url 'logout' %}">Выйти</a></p>
+        </div>
+{% endblock %}

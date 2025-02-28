@@ -1,0 +1,157 @@
+<head>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        /* Стили для заголовков */
+        .header {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .form-container h3 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-group .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Стили для кнопки */
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Стили для возврата */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="header">Редактирование пользователя</h2>
+
+        <div class="form-container">
+            <h3>Заполните поля для редактирования информации</h3>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="username">Имя пользователя</label>
+                    <input type="text" id="username" name="username" value="{{ user.username }}" required>
+                    {% if form.username.errors %}
+                        <p class="error">{{ form.username.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" name="email" value="{{ user.email }}" required>
+                    {% if form.email.errors %}
+                        <p class="error">{{ form.email.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Роль</label>
+                    <select id="role" name="role" required>
+                        <option value="user" {% if user.role == 'user' %}selected{% endif %}>Пользователь</option>
+                        <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Администратор</option>
+                    </select>
+                    {% if form.role.errors %}
+                        <p class="error">{{ form.role.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Сохранить изменения</button>
+                </div>
+            </form>
+
+            <div class="back-link">
+                <a href="{% url 'user_list' %}">Назад к списку пользователей</a>
+            </div>
+        </div>
+    </div>
+</body>
